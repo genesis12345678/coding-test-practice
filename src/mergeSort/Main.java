@@ -1,69 +1,56 @@
 package mergeSort;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        int[] arr = {1,3,5,7,9,2,4,6,8,0};
-        sort(arr, arr.length);
-        System.out.println(Arrays.toString(arr));
+
+    public static long C;
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
+        C = Long.parseLong(st.nextToken());
+
+        System.out.println(pow(a, b));
     }
 
-    public static void sort(int[] arr, int arrLength) {
+    // A^exponent
+    public static long pow(long A, long exponent) {
 
-        if (arrLength < 2) {
-            return;
+        // 지수가 1일 경우 A^1 이므로 A를 그대로 리턴
+        if(exponent == 1) {
+            System.out.println("exponent = " + exponent);
+            System.out.println("A % C = " + A % C);
+            return A % C;
         }
 
-        int mid = arrLength / 2;
-        int[] leftArray = new int[mid];
-        int[] rightArray = new int[arrLength - mid];
+        // 지수의 절반에 해당하는 A^(exponent / 2) 을 구한다.
+        long temp = pow(A, exponent / 2);
 
-        for (int i = 0; i < mid; i++) {
-            leftArray[i] = arr[i];
+        /*
+         * 현재 지수가 홀수 였다면
+         * A^(exponent / 2) * A^(exponent / 2) * A 이므로
+         * A를 한 번 더 곱해주어야 한다.
+         *
+         * ex) A^9 = A^4 * A^4 * A
+         */
+        if(exponent % 2 == 1) {
+            System.out.println("exponent = " + exponent);
+            System.out.println("exponent % 2 == 1 temp");
+            System.out.println("temp = " + temp);
+            System.out.println("(temp * temp % C) * A % C = " + (temp * temp % C) * A % C);
+            return (temp * temp % C) * A % C;
         }
-        for (int i = mid; i < arrLength; i++) {
-            rightArray[i - mid] = arr[i];
-        }
-
-
-        sort(leftArray, leftArray.length);
-
-        sort(rightArray, rightArray.length);
-
-        merge(arr, leftArray, rightArray, leftArray.length, rightArray.length);
+        System.out.println("exponent = " + exponent);
+        System.out.println("temp = " + temp);
+        System.out.println("temp * temp % C = " + temp * temp % C);
+        return temp * temp % C;
     }
-
-    public static void merge(int[] arr, int[] leftArray, int[] rightArray, int leftArrayLength, int rightArrayLength) {
-        int leftIndex = 0;
-        int rightIndex = 0;
-        int currentIndex = 0;
-
-
-        while (leftIndex < leftArrayLength && rightIndex < rightArrayLength) {
-            if (leftArray[leftIndex] <= rightArray[rightIndex]) {
-                arr[currentIndex] = leftArray[leftIndex];
-                currentIndex++;
-                leftIndex++;
-            } else {
-                arr[currentIndex] = rightArray[rightIndex];
-                currentIndex++;
-                rightIndex++;
-            }
-        }
-
-        while (leftIndex < leftArrayLength) {
-            arr[currentIndex] = leftArray[leftIndex];
-            currentIndex++;
-            leftIndex++;
-        }
-
-        while (rightIndex < rightArrayLength) {
-            arr[currentIndex] = rightArray[rightIndex];
-            currentIndex++;
-            rightIndex++;
-        }
-    }
-
-
 }
