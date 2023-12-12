@@ -3,52 +3,48 @@ package backTracking;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
-    public static int n;
-    public static int m;
+
     public static int[] arr;
-    public static StringBuilder sb = new StringBuilder();
+    public static int N;
+    public static int count;
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(br.readLine());
+        arr = new int[N];
 
-        arr = new int[m];
+        dfs(0);
 
-        solution(0);
-
-        System.out.println(sb);
+        System.out.println(count);
     }
 
-    /**
-     * 백트래킹 알고리즘 메소드
-     * @param idx index = 현재 배열의 위치
-     *            처음에는 0으로 시작한다.
-     */
-    private static void solution(int idx) {
-        /**
-         * 배열위치와 배열크기가 같아진다면
-         * sb에 append 하고
-         * 이전 콜스택으로 돌아간다.
-         */
-
-        if (idx == m) {
-            for (int i : arr) {
-                sb.append(i).append(" ");
-            }
-            sb.append("\n");
+    private static void dfs(int depth) {
+        if (depth == N) {
+            count ++;
             return;
         }
 
-        for (int i = 1; i < n + 1; i++) {
-            arr[idx] = i;
-            solution(idx + 1);
+        for (int i = 0; i < N; i++) {
+            arr[depth] = i;
+
+            if(promising(depth)){
+                dfs(depth + 1);
+            }
         }
+    }
+
+    private static boolean promising(int depth) {
+        for (int i = 0; i < depth; i++) {
+            if (arr[i] == arr[depth]) {
+                return false;
+            } else if (Math.abs(depth - i) == Math.abs(arr[depth] - arr[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 }

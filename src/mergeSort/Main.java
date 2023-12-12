@@ -26,8 +26,6 @@ public class Main {
 
         // 지수가 1일 경우 A^1 이므로 A를 그대로 리턴
         if(exponent == 1) {
-            System.out.println("exponent = " + exponent);
-            System.out.println("A % C = " + A % C);
             return A % C;
         }
 
@@ -42,15 +40,8 @@ public class Main {
          * ex) A^9 = A^4 * A^4 * A
          */
         if(exponent % 2 == 1) {
-            System.out.println("exponent = " + exponent);
-            System.out.println("exponent % 2 == 1 temp");
-            System.out.println("temp = " + temp);
-            System.out.println("(temp * temp % C) * A % C = " + (temp * temp % C) * A % C);
             return (temp * temp % C) * A % C;
         }
-        System.out.println("exponent = " + exponent);
-        System.out.println("temp = " + temp);
-        System.out.println("temp * temp % C = " + temp * temp % C);
         return temp * temp % C;
     }
 }
