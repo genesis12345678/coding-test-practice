@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Five {
-    public static boolean prime[];
+    public static boolean[] prime;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int M = Integer.parseInt(br.readLine());
