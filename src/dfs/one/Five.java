@@ -1,4 +1,4 @@
-package dfs;
+package dfs.one;
 
 import java.io.BufferedReader;
 import java.io.IOException;
