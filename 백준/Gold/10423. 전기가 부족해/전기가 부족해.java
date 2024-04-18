@@ -52,9 +52,23 @@ public class Main {
                 union(start, end);
                 result += dist;
             }
+
+            if (check()) {
+                break;
+            }
         }
 
-        System.out.println(result);
+        System.out.print(result);
+    }
+
+    private static boolean check() {
+        for (int i = 1; i < parent.length; i++) {
+            if (parent[i] != -1) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     static int find(int a) {
