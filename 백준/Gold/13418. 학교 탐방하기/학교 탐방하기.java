@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
 
@@ -34,7 +31,7 @@ public class Main {
             edges.add(new Edge(a, b, c));
         }
 
-        edges.sort(Comparator.comparingInt(o -> o.dist));
+        Collections.sort(edges);
 
         int worst = 0;
         for (int i = 0; i < edges.size(); i++) {
@@ -95,13 +92,18 @@ public class Main {
         }
     }
 
-    static class Edge{
+    static class Edge implements Comparable<Edge>{
         int start, end, dist;
 
         public Edge(int start, int end, int dist) {
             this.start = start;
             this.end = end;
             this.dist = dist;
+        }
+
+        @Override
+        public int compareTo(Edge o) {
+            return dist - o.dist;
         }
     }
 }
