@@ -1,8 +1,14 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class Main {
 
     static boolean[] visit = new boolean[10001];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         for (int i = 1; i <= 10000; i++) {
             if (d(i) <= 10000) {
@@ -12,9 +18,12 @@ public class Main {
 
         for (int i = 1; i <= 10000; i++) {
             if (!visit[i]) {
-                System.out.println(i);
+                bw.write(i + "\n");
             }
         }
+
+        bw.flush();
+        bw.close();
     }
 
     static int d(int n) {
