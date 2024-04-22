@@ -31,8 +31,6 @@ public class Main {
 
         backTrack(0, "");
 
-        Collections.sort(list);
-
         StringBuilder sb = new StringBuilder();
         for (String s : list) {
             sb.append(s).append("\n");
