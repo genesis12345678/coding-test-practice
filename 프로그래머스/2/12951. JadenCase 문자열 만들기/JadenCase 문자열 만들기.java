@@ -18,7 +18,7 @@ class Solution {
             sb.append(" ");
         }
         
-        if(s.toString().substring(s.length() - 1, s.length()).equals(" ")){
+        if(s.substring(s.length() - 1, s.length()).equals(" ")){
             return sb.toString();
         }
         

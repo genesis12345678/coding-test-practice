@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 79.3 MB, 시간: 0.04 ms
+메모리: 77.6 MB, 시간: 0.06 ms
 
 ### 구분
 
@@ -16,11 +16,11 @@
 
 ### 제출 일자
 
-2024년 04월 22일 17:09:06
+2024년 04월 22일 17:10:30
 
 ### 문제 설명
 
-<p data-sider-select-id="6d90cbd8-aa28-404c-8a7c-d6b0b6ecb5eb">JadenCase란 모든 단어의 첫 문자가 대문자이고, 그 외의 알파벳은 소문자인 문자열입니다. 단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자로 쓰면 됩니다. (첫 번째 입출력 예 참고)<br>
+<p>JadenCase란 모든 단어의 첫 문자가 대문자이고, 그 외의 알파벳은 소문자인 문자열입니다. 단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자로 쓰면 됩니다. (첫 번째 입출력 예 참고)<br>
 문자열 s가 주어졌을 때, s를 JadenCase로 바꾼 문자열을 리턴하는 함수, solution을 완성해주세요.</p>
 
 <h5>제한 조건</h5>
@@ -32,7 +32,7 @@
 <ul>
 <li>숫자는 단어의 첫 문자로만 나옵니다.</li>
 <li>숫자로만 이루어진 단어는 없습니다.</li>
-<li data-sider-select-id="aa9c68d4-d605-4bc3-a482-20b55f1e4e92">공백문자가 연속해서 나올 수 있습니다.</li>
+<li>공백문자가 연속해서 나올 수 있습니다.</li>
 </ul></li>
 </ul>
 
@@ -44,7 +44,7 @@
 </tr>
 </thead>
         <tbody><tr>
-<td data-sider-select-id="cccac8d1-2e0c-42c3-863b-c4b8cdcf6977">"3people unFollowed me"</td>
+<td>"3people unFollowed me"</td>
 <td style="text-align: center">"3people Unfollowed Me"</td>
 </tr>
 <tr>
