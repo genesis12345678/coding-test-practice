@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static boolean[] visit = new boolean[9];
+
     static int[] arr;
     static int n, m;
     static StringBuilder sb = new StringBuilder();
@@ -29,11 +29,8 @@ public class Main {
         }
 
         for (int i = start; i <= n; i++) {
-            if (!visit[i]) {
-                visit[i] = true;
-                backTrack(depth + 1, result + i + " ", i + 1);
-                visit[i] = false;
-            }
+             backTrack(depth + 1, result + i + " ", i + 1);
+                
         }
     }
 }
