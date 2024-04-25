@@ -44,16 +44,18 @@ public class Main {
             dfs(s);
         }
 
-        String candidate1 = br.readLine();
-        for (int i = 1; i < m; i++) {
-            String candidate2 = br.readLine();
+        double max = 0;
+        String candidate = "";
+        for (int i = 0; i < m; i++) {
+            String temp = br.readLine();
 
-            if (blood.getOrDefault(candidate1, 0d) < blood.getOrDefault(candidate2, 0d)) {
-                candidate1 = candidate2;
+            if (blood.getOrDefault(temp, 0d) > max) {
+                max = blood.get(temp);
+                candidate = temp;
             }
         }
 
-        System.out.print(candidate1);
+        System.out.print(candidate);
 
     }
 
@@ -65,7 +67,7 @@ public class Main {
 
         if (family.get(person) == null) {
             blood.put(person, 0d);
-            return blood.get(person);
+            return 0;
         }
 
         String father = family.get(person).get(0);
