@@ -12,7 +12,7 @@ public class Main {
 
         while (true) {
             String s = br.readLine();
-            if (s == null || s.isEmpty()) {
+            if (s == null) {
                 break;
             }
 
