@@ -26,13 +26,13 @@ public class Main {
         }
 
         for (int i = 0; i <= 3; i++) {
-            addLine(0, i);
+            addLine(1, 0, i);
         }
 
         System.out.print(-1);
     }
 
-    static void addLine(int count, int depth) {
+    static void addLine(int r, int count, int depth) {
         if (count == depth) {
             if (check()) {
                 System.out.print(count);
@@ -41,11 +41,11 @@ public class Main {
             return;
         }
 
-        for (int i = 1; i <= h; i++) {
+        for (int i = r; i <= h; i++) {
             for (int j = 1; j < n; j++) {
                 if (ladder[i][j] == 0 && ladder[i][j - 1] == 0 && ladder[i][j + 1] == 0) {
                     ladder[i][j] = 1;
-                    addLine(count + 1, depth);
+                    addLine(i, count + 1, depth);
                     ladder[i][j] = 0;
                 }
             }
