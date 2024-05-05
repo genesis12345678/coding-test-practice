@@ -20,7 +20,7 @@ class Solution {
             }
 
             for (String s : want) {
-                if (!Objects.equals(wantMap.get(s), disMap.get(s))) {
+                if (wantMap.get(s) != disMap.get(s)) {
                     find = false;
                     break;
                 }
