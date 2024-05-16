@@ -32,9 +32,7 @@ public class Main {
                 left++;
             } else {
                 right++;
-                if (left == right) {
-                    right++;
-                }
+               
             }
         }
 
