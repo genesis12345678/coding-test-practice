@@ -1,0 +1,2 @@
+SELECT ANIMAL_TYPE, IFNULL(name, 'No name'), SEX_UPON_INTAKE
+FROM animal_ins
