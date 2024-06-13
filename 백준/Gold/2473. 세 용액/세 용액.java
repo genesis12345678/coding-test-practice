@@ -32,6 +32,9 @@ public class Main {
                     result[1] = arr[left];
                     result[2] = arr[right];
                 }
+                if(min == 0){
+                    break;
+                }
 
                 if (sum < 0) {
                     left++;
